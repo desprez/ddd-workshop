@@ -1,5 +1,7 @@
 package com.ddd.training.application;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 public class Currency extends AbstractBaseEntity {
 
 	public static final String EUR_ISO = "EUR";
@@ -28,21 +30,18 @@ public class Currency extends AbstractBaseEntity {
 	}
 
 	@Override
-	public boolean equals(final Object o) {
-		if (this == o) {
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
 		}
-		if (!(o instanceof Currency)) {
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
+		final Currency other = (Currency) obj;
 
-		final Currency currency = (Currency) o;
-
-		if (!isoCode.equals(currency.isoCode)) {
-			return false;
-		}
-
-		return true;
+		return new EqualsBuilder() // Equality on the business reference only
+				.append(isoCode, other.isoCode) //
+				.isEquals();
 	}
 
 	@Override

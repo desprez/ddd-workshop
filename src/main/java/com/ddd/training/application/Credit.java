@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 public class Credit extends AbstractBaseEntity {
 
 	private String name;
@@ -67,24 +69,18 @@ public class Credit extends AbstractBaseEntity {
 	}
 
 	@Override
-	public boolean equals(final Object o) {
-		if (this == o) {
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
 		}
-		if (!(o instanceof Credit)) {
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
+		final Credit other = (Credit) obj;
 
-		final Credit credit = (Credit) o;
-
-		if (!name.equals(credit.name)) {
-			return false;
-		}
-		if (!technicalCode.equals(credit.technicalCode)) {
-			return false;
-		}
-
-		return true;
+		return new EqualsBuilder() // Equality on the business reference only
+				.append(technicalCode, other.technicalCode) //
+				.isEquals();
 	}
 
 	@Override
