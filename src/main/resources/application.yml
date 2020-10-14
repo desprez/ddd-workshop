@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  hibernate:
+    ddl-auto: validate
+  jpa:
+    mapping-resources: 
+      - META-INF/common.orm.xml
+      - META-INF/credit.orm.xml          
+      - META-INF/currency.orm.xml
+      - META-INF/echeance_request.orm.xml      
+    open-in-view: false    
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.springframework.data.repository.config.RepositoryConfigurationDelegate: TRACE

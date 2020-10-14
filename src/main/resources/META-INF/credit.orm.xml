@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
+
+	<entity
+		class="com.ddd.training.application.Credit"
+		name="Credit" access="FIELD">
+		<table name="CREDIT" />
+
+		<attributes>
+			<basic name="name" length="100">
+				<column name="NAME" />
+			</basic>
+			<basic name="technicalCode">
+				<column name="TECHNICAL_CODE" />
+			</basic>
+			<basic name="marketDate">
+				<column name="MARKET_DATE" />
+			</basic>
+			<basic name="placeDate">
+				<column name="PLACE_DATE"/>
+			</basic>
+
+			<one-to-many name="echeanceRequests" fetch="LAZY"
+				orphan-removal="true">
+				<join-column name="ECHEANCEREQUESTS_ID"
+					referenced-column-name="ID" nullable="false" updatable="false" />
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+
+			<one-to-many name="currencies" fetch="LAZY"
+				orphan-removal="true">
+				<join-column name="CURRENCY_ID"
+					referenced-column-name="ID" nullable="false" updatable="false" />
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+ <!--
+			<embedded name="creditId">
+				<attribute-override name="product_id">
+					<column name="PRODUCT_ID" />
+				</attribute-override>
+				<attribute-override name="referenceCode">
+					<column name="REFERENCE_CODE" />
+				</attribute-override>
+			</embedded>
+ -->
+		</attributes>
+	</entity>
+
+</entity-mappings>

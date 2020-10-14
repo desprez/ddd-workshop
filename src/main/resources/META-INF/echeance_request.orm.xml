@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
+
+	<entity
+		class="com.ddd.training.application.EcheanceRequest"
+		name="EcheanceRequest" access="FIELD">
+		<table name="ECHEANCE_REQUEST" />
+
+		<attributes>
+			<basic name="paymentDate">
+				<column name="PAYEMENT_DATE" />
+			</basic>
+			<basic name="crd">
+				<column name="CRD" />
+			</basic>
+		</attributes>
+	</entity>
+
+</entity-mappings>
