@@ -32,13 +32,13 @@ Les Entités sont construite à l'aide de Builder (Builder pattern).
 
 Afin d'appliquer un des principes de l'architecture hexagonale, la configuration JPA se fait par des fichiers ORM.xml. Cela nous permet de décorréler la technique de notre domaine.
 
-###1. Installation
+### 1. Installation
 
 - Cloner le projet : https://github.com/desprez/ddd-workshop.git
 - Lancer un mvn verify ou install
 
 
-###2. Constats
+### 2. Constats
 
 Que constatez-vous ?
  - Les objets sont ils bien rangés ?
@@ -52,7 +52,7 @@ Avant de vous lancer, vérifiez les tests et leur taux de couverture : est-il su
 - Lancer les tests
 
 
-###3. CreditId
+### 3. CreditId
 
 Une entité doit avoir une identité unique. Nous savons qu'un emprunt est identifié par un code de référence. En DDD nous devons typer cet aspect d'identité : c'est le but de la classe CreditId. Cette dernière possède de l'intelligence pour valider ses attributs (id et code de référence). Les méthodes equals et hashcode sont basées sur le code de référence.
 Nous devons ajouter cette classe à notre entité Credit :
@@ -63,7 +63,7 @@ Nous devons ajouter cette classe à notre entité Credit :
 - Ajouter de la validation dans le setter de l'attribut CreditId : ce dernier ne peut pas être null.
 
 
-###4. Echeance & Currency
+### 4. Echeance & Currency
 
 Nous allons encapsuler les échéances et les currencies. En effet en terme objet, ces notions doivent être encapsulées dans une notion de book: un EcheanceBook gère un ensemble d'EcheanceRequest.
 Aussi en DDD, le point d'entrée pour les opérations sur les objets doit passer par l'entité. L'ajout d'une échéance doit se faire pour la classe Credit et non par la classe EcheanceRequest.
@@ -80,7 +80,7 @@ Aussi en DDD, le point d'entrée pour les opérations sur les objets doit passer
 Après ce refactoring, les tests peuvent de nouveau passer.
 
 
-###5. CreditRepository
+### 5. CreditRepository
 
 La classe CreditRepositoryImpl se trouve dans le domaine. Pour respecter les principes de l'architecture hexagonale, cette classe doit se trouver en dehors du domaine. Nous allons également la renommer afin d'avoir un nom plus parlant
 
@@ -88,7 +88,7 @@ La classe CreditRepositoryImpl se trouve dans le domaine. Pour respecter les pri
 - Déplacer la classe CreditRepositoryImpl dans ce package
 
 
-###6. CreditDecimal
+### 6. CreditDecimal
 
 Nous allons modifier la classe EcheanceRequest et son attribut crd. En effet cet attribut est un BigDecimal : pour effectuer des opérations nous devons tester la nullité et gérer les cas d'exception.
 C'est dans cette optique que la classe CreditDecimal a été créée. Cette dernière encapsule les traitements (gestion des opérations et arrondis). De plus nous avons également défini cette classe comme un attribut Hibernate.
@@ -98,7 +98,7 @@ C'est dans cette optique que la classe CreditDecimal a été créée. Cette dern
 - Modifier les tests
 
 
-###7. CreditDataService
+### 7. CreditDataService
 
 A cette étape, le code ne compile plus car la classe CreditService applique des taux de change. Cependant notre crd est un CreditDecimal et la classe DataService nous retourne des BigDecimal. Etant donnée que ce service est externe, nous allons ajouter une couche anticorruption.
 Cette couche permet de traduire des notions similaires mais utilisées différemment suivant les domaines.
@@ -109,7 +109,7 @@ La classe CreditDataService a déjà été ajoutée. Nous remarquons que cette c
 - Modifier les tests
 
 
-###8. CreditApplicationService
+### 8. CreditApplicationService
 
 Maintenant que la classe CreditService a été modifié, nous remarquons que son emplacement ne va pas. En effet cette dernière contient une référence vers CreditRepository (le domaine) et vers CreditDataService (extérieur). Toujours pour respecter notre architecture, nous devons déplacer cette classe.
 
@@ -119,13 +119,13 @@ Maintenant que la classe CreditService a été modifié, nous remarquons que son
 Ce package permet de regrouper les services qui sont en relation avec toute l'application. Le nommage de la classe renforce cet aspect. Nous n'avons pas besoin de chercher pendant des heures pour comprendre ce que la classe fait.
 
 
-###9. java.util.date
+### 9. java.util.date
 
 - Remplacer dans les entities les type java.util.date par des java.time.LocalDate.
 - Corriger les tests untaires.
 
 
-###10. Bravo !
+### 10. Bravo !
 
 Vous avez maintenant du code conçu autour du modèle métier en s'inspirant de l'architecture hexagonale.
 Vous pouvez continuer en implémentant la couche exposition sous forme d'API Rest.
