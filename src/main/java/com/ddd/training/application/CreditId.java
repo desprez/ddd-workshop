@@ -1,9 +1,10 @@
 package com.ddd.training.application;
 
-import java.util.Objects;
 import java.util.UUID;
 
 import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public final class CreditId {
 
@@ -35,20 +36,25 @@ public final class CreditId {
 	}
 
 	@Override
-	public boolean equals(final Object object) {
-		boolean equalObjects = false;
-
-		if (object != null && this.getClass() == object.getClass()) {
-			final CreditId typedObject = (CreditId) object;
-			equalObjects = referenceCode.equals(typedObject.referenceCode);
+	public boolean equals(final Object obj) {
+		if (this == obj) {
+			return true;
 		}
+		if (obj == null || getClass() != obj.getClass()) {
+			return false;
+		}
+		final CreditId other = (CreditId) obj;
 
-		return equalObjects;
+		return new EqualsBuilder() // Equality on the business reference only
+				.append(referenceCode, other.referenceCode) //
+				.isEquals();
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hashCode(referenceCode);
+		return new HashCodeBuilder(17, 37) //
+				.append(referenceCode) //
+				.toHashCode();
 	}
 
 }

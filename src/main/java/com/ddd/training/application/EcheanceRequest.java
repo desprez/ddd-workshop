@@ -55,7 +55,7 @@ public class EcheanceRequest extends AbstractBaseEntity {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder(17, 37) //
-				.append(getId()) //
+				.append(id) //
 				.toHashCode();
 	}
 }

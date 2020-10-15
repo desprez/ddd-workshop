@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Credit extends AbstractBaseEntity {
 
@@ -85,9 +86,10 @@ public class Credit extends AbstractBaseEntity {
 
 	@Override
 	public int hashCode() {
-		int result = name.hashCode();
-		result = 31 * result + technicalCode.hashCode();
-		return result;
+		return new HashCodeBuilder(17, 37) //
+				.append(name) //
+				.append(technicalCode)
+				.toHashCode();
 	}
 
 	public List<EcheanceRequest> getEcheanceRequests() {

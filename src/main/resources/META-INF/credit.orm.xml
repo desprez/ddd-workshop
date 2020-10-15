@@ -42,8 +42,8 @@
 			</one-to-many>
  <!--
 			<embedded name="creditId">
-				<attribute-override name="product_id">
-					<column name="PRODUCT_ID" />
+				<attribute-override name="id">
+					<column name="CREDIT_ID" />
 				</attribute-override>
 				<attribute-override name="referenceCode">
 					<column name="REFERENCE_CODE" />
