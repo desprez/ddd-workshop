@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
 
 	<entity
-		class="com.ddd.training.application.Credit"
+		class="com.ddd.training.domain.credit.Credit"
 		name="Credit" access="FIELD">
 		<table name="CREDIT" />
 
@@ -40,16 +40,16 @@
 					<cascade-all />
 				</cascade>
 			</one-to-many>
- <!--
+ 
 			<embedded name="creditId">
-				<attribute-override name="product_id">
-					<column name="PRODUCT_ID" />
+				<attribute-override name="id">
+					<column name="CREDIT_ID" />
 				</attribute-override>
 				<attribute-override name="referenceCode">
 					<column name="REFERENCE_CODE" />
 				</attribute-override>
 			</embedded>
- -->
+ 
 		</attributes>
 	</entity>
 

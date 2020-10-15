@@ -1,4 +1,4 @@
-package com.ddd.training.application;
+package com.ddd.training.domain.credit;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

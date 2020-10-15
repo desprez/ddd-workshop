@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
 
 	<entity
-		class="com.ddd.training.application.EcheanceRequest"
+		class="com.ddd.training.domain.echeance.EcheanceRequest"
 		name="EcheanceRequest" access="FIELD">
 		<table name="ECHEANCE_REQUEST" />
 

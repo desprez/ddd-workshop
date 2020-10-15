@@ -17,14 +17,14 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.ddd.training.application.Credit;
-import com.ddd.training.application.CreditBuilder;
-import com.ddd.training.application.CreditRepository;
 import com.ddd.training.application.CreditService;
-import com.ddd.training.application.Currency;
 import com.ddd.training.application.DataService;
-import com.ddd.training.application.EcheanceRequest;
-import com.ddd.training.application.EcheanceRequestBuilder;
+import com.ddd.training.domain.credit.Credit;
+import com.ddd.training.domain.credit.CreditBuilder;
+import com.ddd.training.domain.credit.CreditRepository;
+import com.ddd.training.domain.currency.Currency;
+import com.ddd.training.domain.echeance.EcheanceRequest;
+import com.ddd.training.domain.echeance.EcheanceRequestBuilder;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CreditServiceTest {

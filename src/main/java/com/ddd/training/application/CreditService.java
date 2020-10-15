@@ -10,6 +10,12 @@ import java.util.function.Predicate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ddd.training.domain.credit.Credit;
+import com.ddd.training.domain.credit.CreditRepository;
+import com.ddd.training.domain.currency.Currency;
+import com.ddd.training.domain.echeance.EcheanceRequest;
+import com.ddd.training.domain.echeance.EcheanceRequestBuilder;
+
 @Service
 @Transactional
 public class CreditService {

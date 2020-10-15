@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.ddd.training.application.Credit;
-import com.ddd.training.application.EcheanceRequest;
-import com.ddd.training.application.EcheanceRequestBuilder;
+import com.ddd.training.domain.credit.Credit;
+import com.ddd.training.domain.echeance.EcheanceRequest;
+import com.ddd.training.domain.echeance.EcheanceRequestBuilder;
 
 public class CreditTest {
 

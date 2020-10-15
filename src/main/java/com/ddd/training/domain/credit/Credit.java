@@ -1,12 +1,19 @@
-package com.ddd.training.application;
+package com.ddd.training.domain.credit;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
+import com.ddd.training.application.AbstractBaseEntity;
+import com.ddd.training.domain.currency.Currency;
+import com.ddd.training.domain.echeance.EcheanceRequest;
+
 public class Credit extends AbstractBaseEntity {
+
+	private CreditId creditId;
 
 	private String name;
 
@@ -16,16 +23,26 @@ public class Credit extends AbstractBaseEntity {
 
 	private Date placeDate;
 
-	private List<EcheanceRequest> echeanceRequests =  new ArrayList<>();
+	private List<EcheanceRequest> echeanceRequests = new ArrayList<>();
 
 	private List<Currency> currencies = new ArrayList<>();
 
-	public Credit(final String name, final String technicalCode) {
+	public Credit(final String name, final String technicalCode, final CreditId creditId) {
 		setName(name);
 		setTechnicalCode(technicalCode);
+		setCreditId(creditId);
 	}
 
 	public Credit() {
+	}
+
+	public CreditId getCreditId() {
+		return creditId;
+	}
+
+	public void setCreditId(CreditId creditId) {
+		Validate.notNull(creditId, "creditId is required");
+		this.creditId = creditId;
 	}
 
 	public String getName() {

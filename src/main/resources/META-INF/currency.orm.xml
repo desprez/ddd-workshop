@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
 
-	<entity class="com.ddd.training.application.Currency"
+	<entity class="com.ddd.training.domain.currency.Currency"
 		name="Currency" access="FIELD">
 		<table name="CURRENCY" />
 

@@ -1,10 +1,12 @@
-package com.ddd.training.application;
+package com.ddd.training.domain.echeance;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import com.ddd.training.application.AbstractBaseEntity;
 
 public class EcheanceRequest extends AbstractBaseEntity {
 

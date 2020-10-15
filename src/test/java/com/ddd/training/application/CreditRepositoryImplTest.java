@@ -12,6 +12,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.ddd.training.domain.credit.Credit;
+import com.ddd.training.domain.credit.CreditBuilder;
+import com.ddd.training.domain.credit.CreditRepositoryImpl;
+import com.ddd.training.domain.echeance.EcheanceRequest;
+import com.ddd.training.domain.echeance.EcheanceRequestBuilder;
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class CreditRepositoryImplTest {

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-@ComponentScan(basePackages = { "com.ddd.training.application" })
+@ComponentScan(basePackages = { "com.ddd.training" })
 public class WorskhopApplication {
 
 	public static void main(final String[] args) {

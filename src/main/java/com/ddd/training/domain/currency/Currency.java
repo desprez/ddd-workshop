@@ -1,6 +1,8 @@
-package com.ddd.training.application;
+package com.ddd.training.domain.currency;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+
+import com.ddd.training.application.AbstractBaseEntity;
 
 public class Currency extends AbstractBaseEntity {
 

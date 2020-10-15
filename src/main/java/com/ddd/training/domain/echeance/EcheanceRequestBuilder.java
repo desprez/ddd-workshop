@@ -1,4 +1,4 @@
-package com.ddd.training.application;
+package com.ddd.training.domain.echeance;
 
 import java.math.BigDecimal;
 import java.util.Date;
